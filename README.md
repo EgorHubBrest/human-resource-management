@@ -1,4 +1,4 @@
-#### Human Resource Management
+# Human Resource Management
 
 ## Project goal:
 
