@@ -163,6 +163,12 @@ If error occurs, then error message is displaying.
 
 _Pic 2.7 Error of removing department._
 
+If department is not empty, then following message is displaying.
+
+![Pic 2.8 Empty department removing.](https://github.com/krisstinkou/human-resource-management/blob/dev/documentation/images/28.png)
+
+_Pic 2.8 Empty department removing._
+
 
 ## 3. Employees
 
@@ -296,7 +302,7 @@ _Pic 3.4 Edit employee._
 
 If error occurs, then error message displays:
 
-![Pic 3.5 Error of editing department.](https://github.com/krisstinkou/human-resource-management/blob/dev/documentation/images/34.png)
+![Pic 3.5 Error of editing department.](https://github.com/krisstinkou/human-resource-management/blob/dev/documentation/images/35.png)
 
 _Pic 3.5 Error of editing department._
 
