@@ -223,14 +223,14 @@ __*Main scenario:*__
 * The application will display sorted appropriate departments list.
 
 
-### 3.5 Filtering by department:
+### 3.5 Filtering by date:
 
 Filtering by date of birth is available.
 
 __*Main scenario:*__
 
-* In the employees list view mode, the user selects a department with combo “Select department” and presses the “Show” button;
-* The application will show the employees only from selected department.
+* In the employees list view mode, the user selects a period of time;
+* The application will show the employees only in this period were born.
 
 
 ### 3.6 Add employee:
