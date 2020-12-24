@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/departments.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+	<title>Departments</title>
+</head>
+<body>
+<div id="head">
+	<a id="home-page-link" href="home-page.html">Human Resource Management</a>	
+</div>
+<div id="content">
+	<div id="left-menu">
+		<ul style="list-style-type:none">
+			<li><a href="departments-list.html" class="menu-item" id="menu-item-dep">Departments</a></li>
+			<li><a href="employees-list.html" class="menu-item" id="menu-item-emp">Employees</a></li>
+	</div>
+	<div id="block">
+		<p id="title">
+			Departments
+		</p>
+		<div id="description">
+			Here you can see the list of departments, find the required department by name, sort the list of departments alphabetically, and also see the average salary in each department.
+		</div>
+		<div style="height: 40px; margin-bottom: 36px;">
+			<a href="add-department.html" class="style-button" style="outline: none;" >
+				Add department
+			</a>
+		</div>
+		<script type="text/javascript" src="assets/js/dep-table.js"></script>
+		<div class="table">
+		<table id="departments-table" class="display">
+		    <thead>
+        	    <tr>
+            	    <th>Department name</th>
+                	<th>Average salary</th>
+                	<th>Actions</th>
+            	</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>Development</td>
+        			<td>2500.00</td>
+        			<td>
+        				<a href="edit-department.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-department.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>Testing</td>
+        			<td>1000.00</td>
+        			<td>
+        				<a href="edit-department.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-department.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>        				
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>Finance</td>
+        			<td>950.00</td>
+        			<td>
+        				<a href="edit-department.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-department.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>        				
+        			</td>
+        		</tr>
+        	</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+</body>
+</html>

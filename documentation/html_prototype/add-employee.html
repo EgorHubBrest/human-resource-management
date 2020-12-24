@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/employees.css">
+	<title>Add employee</title>
+</head>
+<body>
+<div id="head">
+	<a id="home-page-link" href="home-page.html">Human Resource Management</a>	
+</div>
+<div id="content">
+	<div id="left-menu">
+		<ul style="list-style-type: none">
+			<li><a href="departments-list.html" class="menu-item" id="menu-item-dep">Departments</a></li>
+			<li><a href="employees-list.html" class="menu-item" id="menu-item-emp">Employees</a></li>
+	</div>
+	<div id="block">
+		<p id="title">
+			Add new employee
+		</p>
+		<div id="description">
+            Here you can add new employee. Please enter the following data:
+		</div>
+        <form id="new-employee-form">
+            <div class="field">
+                <label>Department name:</label><input type="text" class="input-field" name="new-emp-dep" maxlength="70">   
+            </div>
+            <div class="field">
+                <label>Name:</label><input type="text" class="input-field" name="new-emp-name" maxlength="70">    
+            </div>
+            <div class="field">
+                <label>Date of birth:</label><input type="date" class="input-field" name="new-emp-date" style="width: 144px;">   
+            </div>
+            <div class="field">
+                <label>Salary:</label><input type="number" class="input-field" name="new-emp-salary">   
+            </div>
+            <div style="height: 40px; margin-bottom: 36px;">
+                <input formaction="employees-list.html" type="submit" class="style-button" style="outline: none;" value="Add employee">
+                <a href="employees-list.html" class="style-button-cancel" style="outline: none; margin-left: 224px;">Cancel</a>
+            </div>
+        </form>
+	</div>
+</div>
+</body>
+</html>
