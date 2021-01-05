@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/employees.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+	<title>Employees</title>
+</head>
+<body>
+<div id="head">
+	<a id="home-page-link" href="home-page.html">Human Resource Management</a>	
+</div>
+<div id="content">
+	<div id="left-menu">
+		<ul style="list-style-type:none">
+			<li><a href="departments-list.html" class="menu-item" id="menu-item-dep">Departments</a></li>
+			<li><a href="employees-list.html" class="menu-item" id="menu-item-emp">Employees</a></li>
+	</div>
+	<div id="block">
+		<p id="title">
+			Employees
+		</p>
+		<div id="description">
+			Here you can see the list of all employees, find the required employee by name, sort list, also see the following data: related department, employee name, date of birth, salary.
+		</div>
+		<div style="height: 40px; margin-bottom: 36px;">
+			<a href="add-employee.html" class="style-button" style="outline: none;" >
+				Add employee
+			</a>
+		</div>
+		<div style="margin-bottom: 32px;">
+			Filter by date:
+			from <input type="date" name="filter-by-date-begin" class="filter-by-date" style="margin-left: 16px; margin-right: 16px;">
+			by <input type="date" name="filter-by-date-end" class="filter-by-date" style="margin-left: 16px;">
+		</div>
+		<script type="text/javascript" src="assets/js/emp-table.js"></script>
+		<div class="table">
+		<table id="employees-table" class="display">
+		    <thead>
+        	    <tr>
+            	    <th>Department</th>
+                	<th>Name</th>
+                	<th>Date of birth</th>
+                	<th>Salary</th>
+                	<th>Actions</th>
+            	</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+        			<td>Testing</td>
+        			<td>Aimie Patel</td>
+        			<td>12-11-1995</td>
+        			<td>1000.00</td>
+        			<td>
+        				<a href="edit-employee.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-employee.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>Development</td>
+        			<td>Renee Stokes</td>
+        			<td>26-04-1997</td>
+        			<td>1500.00</td>
+        			<td>
+        				<a href="edit-employee.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-employee.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>        				
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>Development</td>
+        			<td>Abbi Finch</td>
+        			<td>04-09-1993</td>
+        			<td>3500.00</td>
+        			<td>
+        				<a href="edit-employee.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-employee.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>        				
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>Finance</td>
+        			<td>Ahmet Hayes</td>
+        			<td>19-02-1994</td>
+        			<td>1100.00</td>
+        			<td>
+        				<a href="edit-employee.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-employee.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>        				
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>Finance</td>
+        			<td>Kayleigh Pineda</td>
+        			<td>29-07-1999</td>
+        			<td>800.00</td>
+        			<td>
+        				<a href="edit-employee.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-employee.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>        				
+        			</td>
+        		</tr>
+        		<tr>
+        			<td>Testing</td>
+        			<td>Neo Turnbull</td>
+        			<td>30-01-1996</td>
+        			<td>1000.000</td>
+        			<td>
+        				<a href="edit-employee.html"><img src="assets/images/pencil.svg" style="width: 22px; height: 20px; padding-bottom: 3px;"></a>
+        				<a href="delete-employee.html"><img src="assets/images/trash.svg" style="width: 20px; height: 32px; margin-left: 8px;"></a>
+        			</td>
+        		</tr>
+        	</tbody>
+		</table>
+	</div>
+	</div>
+</div>
+</body>
+</html>

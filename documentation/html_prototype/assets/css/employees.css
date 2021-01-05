@@ -1,0 +1,18 @@
+#menu-item-emp {
+	font-weight: bold;
+}
+
+.filter-by-date {
+	font-family: Arial;
+	font-size: 16px;
+	border-radius: 8px;
+}
+
+.field label {
+	float: left;
+	width: 144px;		
+}
+
+#new-employee-form {
+	float: left;
+}

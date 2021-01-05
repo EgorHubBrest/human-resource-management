@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/employees.css">
+	<title>Delete employee</title>
+</head>
+<body>
+<div id="head">
+	<a id="home-page-link" href="home-page.html">Human Resource Management</a>	
+</div>
+<div id="content">
+	<div id="left-menu">
+		<ul style="list-style-type: none">
+			<li><a href="departments-list.html" class="menu-item" id="menu-item-dep">Departments</a></li>
+			<li><a href="employees-list.html" class="menu-item" id="menu-item-emp">Employees</a></li>
+	</div>
+	<div id="block">
+		<p id="title">
+			Delete employee
+		</p>
+		<div id="description">
+            Are you sure you want to delete this employee?
+		</div>
+        <form id="delete-employee-form">
+            <div style="height: 40px; margin-bottom: 36px;">
+                <input formaction="employees-list.html" type="submit" class="style-button" style="outline: none;" value="Delete employee">
+                <a href="employees-list.html" class="style-button-cancel" style="outline: none; margin-left: 224px;">Cancel</a>
+            </div>
+        </form>
+	</div>
+</div>
+</body>
+</html>
