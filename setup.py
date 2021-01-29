@@ -10,3 +10,9 @@ setup(name="department-app",
 		  "Django>=3.0",
 	  ]
 	  )
+
+
+def require_pakages():
+	with open("requirements.txt") as file_requirements:
+		packages = [lib.replace('\n', '') for lib in file_requirements.readlines()]
+	return packages
