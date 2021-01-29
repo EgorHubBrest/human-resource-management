@@ -23,4 +23,4 @@ jobs:
       - name: Coveralls
         run: coveralls
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB-TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
