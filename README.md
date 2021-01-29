@@ -1,4 +1,7 @@
 # Human Resource Management
+![build](https://github.com/krisstinkou/human-resource-management/workflows/build/badge.svg)
+
+![coveralls](https://github.com/krisstinkou/human-resource-management/workflows/tests/badge.svg)
 
 ### Project goal:
 The main goal of the project is to create a convenient and functional management system for departments and employees.
