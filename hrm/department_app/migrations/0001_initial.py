@@ -26,7 +26,8 @@ class Migration(migrations.Migration):
                 ('employee_name', models.CharField(max_length=100)),
                 ('date_of_birth', models.DateField()),
                 ('salary', models.FloatField()),
-                ('related_department', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='department_app.department')),
+                ('related_department', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
+                                                         to='department_app.department')),
             ],
         ),
     ]

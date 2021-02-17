@@ -10,7 +10,10 @@ fail-under=10.0
 
 # Add files or directories to the blacklist. They should be base names, not
 # paths.
-ignore=CVS
+ignore=CVS,
+       db.sqlite3,
+       0001_initial.py
+
 
 # Add files or directories matching the regex patterns to the blacklist. The
 # regex matches against base names, not paths.
