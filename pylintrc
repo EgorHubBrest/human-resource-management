@@ -12,7 +12,9 @@ fail-under=10.0
 # paths.
 ignore=CVS,
        db.sqlite3,
-       0001_initial.py
+       0001_initial.py,
+       0002_insert_test_data.py,
+
 
 
 # Add files or directories matching the regex patterns to the blacklist. The
