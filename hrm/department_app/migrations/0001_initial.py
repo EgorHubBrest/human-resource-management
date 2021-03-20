@@ -16,14 +16,14 @@ class Migration(migrations.Migration):
             name='Department',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('department_name', models.CharField(max_length=70)),
+                ('name', models.CharField(max_length=70)),
             ],
         ),
         migrations.CreateModel(
             name='Employee',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('employee_name', models.CharField(max_length=100)),
+                ('name', models.CharField(max_length=100)),
                 ('date_of_birth', models.DateField()),
                 ('salary', models.FloatField()),
                 ('related_department', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
