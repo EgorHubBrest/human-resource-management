@@ -38,9 +38,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: coveralls --service=github
-      - name: Start PostgreSQL
-        run:
-          sudo systemctl start postgresql.service
-      - name: Test query
-        run:
-          psql -U postgres -d department_app.db --command="select department_app_department.name, department_app_employee.name from department_app_employee inner join department_app_department on department_app_employee.related_department_id = department_app_department.id;"
