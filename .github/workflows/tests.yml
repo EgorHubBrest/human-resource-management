@@ -6,9 +6,22 @@ on:
 jobs:
   tests:
     runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:11
+        env:
+          POSTGRES_USER: db_admin
+          POSTGRES_PASSWORD: 2319
+          POSTGRES_DB: department_app.db
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     strategy:
       matrix:
         python-version: [3.6, 3.7, 3.8, 3.9]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -28,7 +41,6 @@ jobs:
       - name: Start PostgreSQL
         run:
           sudo systemctl start postgresql.service
-          pg_isready
       - name: Test query
         run:
           psql -U postgres -d department_app.db --command="select department_app_department.name, department_app_employee.name from department_app_employee inner join department_app_department on department_app_employee.related_department_id = department_app_department.id;"
