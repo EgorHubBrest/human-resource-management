@@ -1,7 +1,7 @@
 # Human Resource Management
-![Build Action Status](https://github.com/krisstinkou/human-resource-management/workflows/build/badge.svg)
+[![Build Action Status](https://github.com/krisstinkou/human-resource-management/workflows/build/badge.svg)](https://github.com/krisstinkou/human-resource-management/blob/dev/.github/workflows/build.yml)
 
-![Tests Action Status](https://github.com/krisstinkou/human-resource-management/workflows/tests/badge.svg)
+[![Tests Action Status](https://github.com/krisstinkou/human-resource-management/workflows/tests/badge.svg)](https://github.com/krisstinkou/human-resource-management/blob/dev/.github/workflows/tests.yml)
 
 [![Coverage Status](https://coveralls.io/repos/github/krisstinkou/human-resource-management/badge.svg?branch=dev)](https://coveralls.io/github/krisstinkou/human-resource-management?branch=master)
 
