@@ -1,0 +1,6 @@
+autoreload | 2021-04-08 10:02:23 | INFO: Watching for file changes with StatReloader
+basehttp | 2021-04-08 10:02:24 | INFO: "GET /employee/ HTTP/1.1" 200 595
+basehttp | 2021-04-08 10:02:46 | INFO: "GET /employee/ HTTP/1.1" 200 595
+log | 2021-04-08 10:02:55 | WARNING: Not Found: /employee/7/
+basehttp | 2021-04-08 10:02:55 | WARNING: "GET /employee/7/ HTTP/1.1" 404 23
+basehttp | 2021-04-08 10:03:04 | INFO: "GET /employee/8/ HTTP/1.1" 200 98
