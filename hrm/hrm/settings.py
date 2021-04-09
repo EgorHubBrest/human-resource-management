@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+from os import path
+from logging.config import fileConfig
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +27,7 @@ SECRET_KEY = 'ii#_^&i4i)q)16&awka5yahgjhx=7-!#jvnl!c&)(^jkaal^=c'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -130,12 +132,9 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': True,
     'formatters': {
-        'file_format': {
-            'format': '%(module)s | %(asctime)s | %(levelname)s: %(message)s',
+        'msg_format': {
+            'format': '[%(asctime)s] [%(levelname)s] | %(module)s: %(message)s',
             'datefmt': '%Y-%m-%d %H:%M:%S',
-        },
-        'console_format': {
-            'format': '%(levelname)s | %(module)s: %(message)s',
         },
     },
     'filters': {
@@ -148,21 +147,20 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',
             'class': 'logging.StreamHandler',
-            'formatter': 'console_format',
+            'formatter': 'msg_format',
         },
         'file': {
-            'level': 'DEBUG',
             'class': 'logging.FileHandler',
             'filename': '../debug.log',
-            'formatter': 'file_format',
+            'formatter': 'msg_format',
         },
     },
     'loggers': {
         'django': {
+            'level': 'DEBUG',
             'handlers': ['file', 'console'],
-            'filters': ['require_debug_true', 'require_debug_false']
+            'filters': ['require_debug_true', 'require_debug_false'],
         }
     }
 }
