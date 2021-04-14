@@ -5,8 +5,10 @@ from setuptools import setup, find_packages
 
 
 def require_pakages():
-    """Function for parsing file requirements.txt
-    return: list of packages for install_requires"""
+    """
+    Function for parsing file requirements.txt return: list of packages for install_requires.
+    """
+
     with open("requirements.txt") as file_requirements:
         packages = [lib.replace('\n', '') for lib in file_requirements.readlines()]
         return packages

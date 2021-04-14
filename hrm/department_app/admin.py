@@ -1,5 +1,5 @@
 """
-Module for admin function.
+Module for admin functions.
 """
 
 from django.contrib import admin
