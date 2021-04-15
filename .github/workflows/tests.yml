@@ -40,4 +40,6 @@ jobs:
       - name: Coveralls
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: coveralls --service=github
+        run:
+          coverage run --source=department_app manage.py test
+          coveralls --service=github
