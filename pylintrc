@@ -13,6 +13,7 @@ fail-under=10.0
 ignore=CVS,
        migrations,
        debug.log,
+       tests,
 
 
 # Add files or directories matching the regex patterns to the blacklist. The
