@@ -41,5 +41,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
-          coverage run --source=hrm manage.py test
+          coverage run --source=department_app hrm/manage.py test
           coveralls --service=github
