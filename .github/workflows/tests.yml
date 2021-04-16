@@ -38,6 +38,7 @@ jobs:
           pip install -r requirements.txt
           pip install coveralls
       - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run:
+          coveralls --finish
