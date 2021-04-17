@@ -43,3 +43,5 @@ jobs:
         run: coverage run --source=hrm hrm/manage.py test department_app
       - name: Coveralls
         run: coveralls --service=github
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
