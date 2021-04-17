@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - dev
-
 jobs:
   build:
 
@@ -28,42 +27,3 @@ jobs:
       - name: Lint with pylint
         run:
           pylint hrm/*
-  tests:
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:11
-        env:
-          POSTGRES_USER: db_admin
-          POSTGRES_PASSWORD: 2319
-          POSTGRES_DB: department_app.db
-        ports:
-          - 5432:5432
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
-    strategy:
-      matrix:
-        python-version: [
-          # 3.6, 3.7, 3.8,
-            3.9 ]
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v2
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run:
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          pip install coveralls coverage
-      - name: Run tests
-        run: coverage run --source=hrm hrm/manage.py test department_app
-      - name: Coveralls
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run:
-          coveralls --service=gihtub
