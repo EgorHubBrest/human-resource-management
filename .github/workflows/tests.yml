@@ -42,7 +42,4 @@ jobs:
       - name: Run tests
         run: coverage run --source=hrm hrm/manage.py test department_app
       - name: Coveralls
-        uses: coverallsapp/github-action@master
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          
+        run: coveralls --service=github
