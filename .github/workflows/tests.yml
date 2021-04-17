@@ -40,7 +40,7 @@ jobs:
           pip install -r requirements.txt
           pip install coveralls coverage
       - name: Run tests
-        run: coverage run --source=hrm hrm/manage.py test
+        run: coverage run --source=hrm hrm/manage.py test department_app
       - name: Coveralls
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
