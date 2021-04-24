@@ -1,6 +1,6 @@
 from django.test import TestCase
 from ..models.department import Department
-from django.db.utils import IntegrityError
+from unittest.mock import Mock
 
 
 class DepartmentModelTest(TestCase):
@@ -9,6 +9,10 @@ class DepartmentModelTest(TestCase):
     def setUpTestData(cls):
         Department.objects.create(name='NewTestDepartment')
 
+    def test_object_creation(self):
+        test_dep = Department.objects.create(name='Test')
+        self.assertTrue(isinstance(test_dep, Department))
+
     def test_length_of_departments(self):
         dep = Department.objects.get(name='NewTestDepartment')
         self.assertLessEqual(len(dep.name), dep._meta.get_field('name').max_length)
@@ -16,12 +20,6 @@ class DepartmentModelTest(TestCase):
     def test_max_length(self):
         dep = Department.objects.get(name='NewTestDepartment')
         self.assertLessEqual(dep._meta.get_field('name').max_length, 70)
-
-    # def test_adding_existing(self):
-    #     try:
-    #         Department.objects.create(name='Finance')
-    #     finally:
-    #         self.assertRaises(IntegrityError)
 
     def test_name_is_unique(self):
         dep = Department.objects.get(name='NewTestDepartment')
