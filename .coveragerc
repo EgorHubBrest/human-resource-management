@@ -1,6 +1,6 @@
 [run]
 omit =
-    manage.py
+    hrm/manage.py
     setup.py
     */tests/*
     */migrations/*
