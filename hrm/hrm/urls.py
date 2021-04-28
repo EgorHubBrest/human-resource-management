@@ -23,7 +23,7 @@ from department_app.views.employee import EmployeeViewSet
 
 router = routers.DefaultRouter()
 router.register(r'department', DepartmentViewSet, basename='department')
-router.register(r'employee', EmployeeViewSet, basename='department')
+router.register(r'employee', EmployeeViewSet, basename='employee')
 
 urlpatterns = [
     path('api/v1/', include(router.urls)),
