@@ -22,10 +22,10 @@ from department_app.views.employee import EmployeeViewSet
 
 
 router = routers.DefaultRouter()
-router.register(r'department', DepartmentViewSet)
-router.register(r'employee', EmployeeViewSet)
+router.register(r'department', DepartmentViewSet, basename='department')
+router.register(r'employee', EmployeeViewSet, basename='department')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/v1/', include(router.urls)),
     path('admin/', admin.site.urls),
 ]
