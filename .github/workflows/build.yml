@@ -32,7 +32,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pylint pylint-django
+          pip install pylint pylint-django coveralls python-dateutil
       - name: Lint with pylint
         run:
           pylint hrm/*
