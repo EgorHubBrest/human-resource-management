@@ -13,5 +13,5 @@ class EmployeeViewSet(viewsets.ModelViewSet):
     This class realized viewset for serializing of employee model.
     """
 
-    queryset = Employee.objects.all().order_by('id')
+    queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer

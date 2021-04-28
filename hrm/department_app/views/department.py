@@ -13,5 +13,5 @@ class DepartmentViewSet(viewsets.ModelViewSet):
     This class realized viewset for serializing of department model.
     """
 
-    queryset = Department.objects.all().order_by('id')
+    queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
