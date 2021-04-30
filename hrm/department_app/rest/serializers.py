@@ -4,14 +4,14 @@ This file contains serializers for sending necessary information to users in for
 
 from rest_framework import serializers
 from department_app.models import Employee, Department
-from rest_framework.serializers import SlugRelatedField
 
 
 class EmployeeSerializer(serializers.ModelSerializer):
     """
     This class is serializer for employee model in Django ORM.
     """
-    related_department = SlugRelatedField(slug_field='id', queryset=Department.objects.all())
+    
+    related_department = serializers.SlugRelatedField(slug_field='id', queryset=Department.objects.all())
 
     class Meta:
         model = Employee
