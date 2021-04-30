@@ -28,7 +28,6 @@ class TestViewEmployee(TestCase):
         """
         Test POST request for REST API
         """
-
         employee_count = Employee.objects.count()
         response = self.client.post(reverse('employee-list'), data=self.employee_data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
@@ -45,7 +44,6 @@ class TestViewEmployee(TestCase):
         """
         Test GET request for REST API
         """
-
         employee_count = Employee.objects.count()
         response = self.client.get(reverse('employee-list'), format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -57,7 +55,6 @@ class TestViewEmployee(TestCase):
         """
         Test UPDATE request for REST API
         """
-
         employee_count = Employee.objects.count()
         response = self.client.put(reverse('employee-detail', args=(self.employee.id,)),
                                    data=urlencode(self.employee_data),
@@ -77,7 +74,6 @@ class TestViewEmployee(TestCase):
         """
         Test DELETE request for REST API
         """
-
         employee_count = Employee.objects.count()
         response = self.client.delete(reverse('employee-detail', args=(self.employee.id,)))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
