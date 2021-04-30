@@ -10,7 +10,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
     """
     This class is serializer for employee model in Django ORM.
     """
-    
     related_department = serializers.SlugRelatedField(slug_field='id', queryset=Department.objects.all())
 
     class Meta:
