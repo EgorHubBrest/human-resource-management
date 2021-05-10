@@ -40,7 +40,7 @@ class TestViewEmployee(TestCase):
             else:
                 self.assertEqual(response.data[field], new_emp_dict[field])
 
-    def test_department_read(self):
+    def test_employee_read(self):
         """
         Test GET request for REST API
         """
@@ -51,7 +51,7 @@ class TestViewEmployee(TestCase):
         if employee_count > 0:
             self.assertEqual(response.data[0].keys(), self.expected_keys)
 
-    def test_department_update(self):
+    def test_employee_update(self):
         """
         Test UPDATE request for REST API
         """
@@ -70,7 +70,7 @@ class TestViewEmployee(TestCase):
                 self.assertEqual(response.data[field], new_emp_dict[field])
         self.assertEqual(new_emp_dict["name"], self.employee_data["name"])
 
-    def test_department_delete(self):
+    def test_employee_delete(self):
         """
         Test DELETE request for REST API
         """
@@ -78,3 +78,46 @@ class TestViewEmployee(TestCase):
         response = self.client.delete(reverse('employee-detail', args=(self.employee.id,)))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Employee.objects.count(), employee_count - 1)
+
+    def test_create_more_th_max_length(self):
+        employee_count = Employee.objects.count()
+        big_emp = {
+            "name": "Very very very very very very very very very very "
+                    "very very very very very very very very very big name",
+            "date_of_birth": datetime.datetime(year=1999, month=9, day=9).strftime("%Y-%m-%d"),
+            "salary": 1000.0,
+            "related_department": self.department.id
+        }
+        max_length = Employee._meta.get_field('name').max_length
+        response = self.client.post(reverse('employee-list'), data=big_emp, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['name'][0], f'Ensure this field has no more than {max_length} characters.')
+        self.assertEqual(response.data['name'][0].code, 'max_length')
+        self.assertEqual(Employee.objects.count(), employee_count)
+
+    def test_update_more_th_max_length(self):
+        employee_count = Employee.objects.count()
+        big_emp = {
+            "name": "Very very very very very very very very very very "
+                    "very very very very very very very very very big name",
+            "date_of_birth": datetime.datetime(year=1999, month=9, day=9).strftime("%Y-%m-%d"),
+            "salary": 1000.0,
+            "related_department": self.department.id
+        }
+        max_length = Employee._meta.get_field('name').max_length
+        response = self.client.put(reverse('employee-detail', args=(self.employee.id,)),
+                                   data=urlencode(big_emp),
+                                   content_type='application/x-www-form-urlencoded')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['name'][0], f'Ensure this field has no more than {max_length} characters.')
+        self.assertEqual(response.data['name'][0].code, 'max_length')
+        self.assertEqual(Employee.objects.count(), employee_count)
+
+    def test_cascade_delete(self):
+        employee_count = Employee.objects.count()
+        department_count = Department.objects.count()
+        count_emp_to_rmv = len(Employee.objects.filter(related_department_id=self.department.id))
+        response = self.client.delete(reverse('department-detail', args=(self.department.id,)))
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(Department.objects.count(), department_count - 1)
+        self.assertEqual(Employee.objects.count(), employee_count - count_emp_to_rmv)

@@ -62,3 +62,43 @@ class TestViewDepartment(TestCase):
         response = self.client.delete(reverse('department-detail', args=(self.department.id,)))
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
         self.assertEqual(Department.objects.count(), department_count - 1)
+
+    def test_unique_name(self):
+        """
+        Test for constraint UNIQUE for department name
+        """
+        department_count = Department.objects.count()
+        add_dep = {
+            "name": "Old Test Department"
+        }
+        response = self.client.post(reverse('department-list'), data=add_dep, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['name'][0], 'department with this name already exists.')
+        self.assertEqual(response.data['name'][0].code, 'unique')
+        self.assertEqual(Department.objects.count(), department_count)
+
+    def test_create_more_th_max_length(self):
+        department_count = Department.objects.count()
+        big_dep = {
+            "name": "Very very very very very very very very very very very very very big name"
+        }
+        max_length = Department._meta.get_field('name').max_length
+        response = self.client.post(reverse('department-list'), data=big_dep, format='json')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['name'][0], f'Ensure this field has no more than {max_length} characters.')
+        self.assertEqual(response.data['name'][0].code, 'max_length')
+        self.assertEqual(Department.objects.count(), department_count)
+
+    def test_update_more_th_max_length(self):
+        department_count = Department.objects.count()
+        big_dep = {
+            "name": "Very very very very very very very very very very very very very big name"
+        }
+        max_length = Department._meta.get_field('name').max_length
+        response = self.client.put(reverse('department-detail', args=(self.department.id,)),
+                                   data=urlencode(big_dep),
+                                   content_type='application/x-www-form-urlencoded')
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.data['name'][0], f'Ensure this field has no more than {max_length} characters.')
+        self.assertEqual(response.data['name'][0].code, 'max_length')
+        self.assertEqual(Department.objects.count(), department_count)
