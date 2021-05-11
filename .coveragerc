@@ -3,6 +3,6 @@ omit =
     hrm/manage.py
     setup.py
     */tests/*
-    */migrations/*
+    *hrm/department_app/*
     *wsgi.py
     *asgi.py
